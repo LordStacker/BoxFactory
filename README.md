@@ -2,5 +2,4 @@
 Third Semester Project "Box Factory"
 
 Author´s
- Nicola Martinez Clemente
-Mika Edling 
+Nicola Martinez Clemente & Mika Edling 
