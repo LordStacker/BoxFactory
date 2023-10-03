@@ -8,14 +8,5 @@ import { CardFilterService } from '../services/card-filter.service';
   styleUrls: ['./home-view.component.css']
 })
 export class HomeViewComponent {
-  constructor(private cardFilterService: CardFilterService) {
-  }
 
-  ngOnInit() {
-  }
-
-  onSearchChange(searchTerm: string) {
-    console.log(searchTerm)
-    this.cardFilterService.setSearchQuery(searchTerm);
-  }
 }

@@ -10,7 +10,7 @@ import { CardFilterService } from '../services/card-filter.service';
 export class CardComponent implements OnInit {
   cards: any[] = [];
   filteredCards: any[] = [];
-  chunkedCards: any[][] = []; // Add this property
+  chunkedCards: any[][] = [];
 
   constructor(
     private http: HttpClient,
@@ -20,10 +20,9 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     this.http.get<any>('https://swapi.dev/api/people').subscribe(data => {
       this.cards = data.results;
-      this.chunkedCards = this.chunk(this.cards, 3); // Chunk the cards
+      this.chunkedCards = this.chunk(this.cards, 3);
     });
 
-    // Subscribe to changes in the search query
     this.cardFilterService.getSearchQuery().subscribe(searchTerm => {
       this.filterCards(searchTerm);
     });
@@ -37,10 +36,9 @@ export class CardComponent implements OnInit {
         card.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    this.chunkedCards = this.chunk(this.filteredCards, 3); // Update chunked cards
+    this.chunkedCards = this.chunk(this.filteredCards, 3);
   }
 
-  // Your chunk method here
   chunk(arr: any[], size: number): any[][] {
     const chunkedArray: any[][] = [];
     for (let i = 0; i < arr.length; i += size) {
