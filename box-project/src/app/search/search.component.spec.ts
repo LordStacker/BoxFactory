@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoxViewComponent } from './box-view.component';
+import { SearchComponent } from './search.component';
 
-describe('BoxViewComponent', () => {
-  let component: BoxViewComponent;
-  let fixture: ComponentFixture<BoxViewComponent>;
+describe('SearchComponent', () => {
+  let component: SearchComponent;
+  let fixture: ComponentFixture<SearchComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BoxViewComponent]
+      declarations: [SearchComponent]
     });
-    fixture = TestBed.createComponent(BoxViewComponent);
+    fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
