@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Dapper;
+using Npgsql;
 
 namespace box_company_back.Controllers;
 
@@ -6,27 +8,25 @@ namespace box_company_back.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private NpgsqlDataSource _dataSource;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(NpgsqlDataSource dataSource)
     {
-        _logger = logger;
+        _dataSource = dataSource;
     }
-
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet]
+    [Route("/api/feed")]
+    public object GetFeed()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        if (string.IsNullOrEmpty(_dataSource.OpenConnection().ToString()))
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            return BadRequest("Connection string is not configured.");
+        }
+        using (var conn = _dataSource.OpenConnection())
+        {
+            var query = "SELECT * FROM public.boxes";
+            var articles = conn.Query<Boxes>(query);
+            return Ok(articles);
+        }
     }
 }

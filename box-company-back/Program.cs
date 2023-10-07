@@ -1,6 +1,13 @@
+using box_company_back;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddNpgsqlDataSource(Utilities.ProperlyFormattedConecctionString,
+        dataSourceBuilder => dataSourceBuilder.EnableParameterLogging());
+}
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -15,6 +22,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options =>
+{
+    options.SetIsOriginAllowed(origin => true)
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+});
 
 app.UseHttpsRedirection();
 
