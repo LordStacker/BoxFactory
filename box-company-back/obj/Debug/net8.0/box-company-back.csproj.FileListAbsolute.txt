@@ -32,3 +32,6 @@ C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\obj\Debug\net8.0
 C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\obj\Debug\net8.0\box-company-back.genruntimeconfig.cache
 C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\obj\Debug\net8.0\ref\box-company-back.dll
 C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\obj\Debug\net8.0\box-company-back.sourcelink.json
+C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\bin\Debug\net8.0\Dapper.dll
+C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\bin\Debug\net8.0\Npgsql.dll
+C:\Users\nicoe\OneDrive\Escritorio\Box Company\box-company-back\bin\Debug\net8.0\Npgsql.DependencyInjection.dll
