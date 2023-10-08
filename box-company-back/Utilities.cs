@@ -5,7 +5,7 @@ public class Utilities
     
     public static readonly string 
         ProperlyFormattedConecctionString = string.Format(
-            "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=true;MaxPoolSize=3",
+            "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=true;Maximum Pool Size=100;",
             Uri.Host,
             Uri.AbsolutePath.Trim('/'),
             Uri.UserInfo.Split(':')[0],

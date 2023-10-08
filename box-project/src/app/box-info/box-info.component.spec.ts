@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginViewComponent } from './login-view.component';
+import { BoxInfoComponent } from './box-info.component';
 
-describe('LoginViewComponent', () => {
-  let component: LoginViewComponent;
-  let fixture: ComponentFixture<LoginViewComponent>;
+describe('BoxInfoComponent', () => {
+  let component: BoxInfoComponent;
+  let fixture: ComponentFixture<BoxInfoComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginViewComponent]
+      declarations: [BoxInfoComponent]
     });
-    fixture = TestBed.createComponent(LoginViewComponent);
+    fixture = TestBed.createComponent(BoxInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
