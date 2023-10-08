@@ -1,1 +1,14 @@
-<p>box-info works!</p>
+<ion-grid class="card-container">
+  <ion-card class="card-item ion-card-shadow">
+    <ion-card-header>
+      <ion-card-subtitle *ngIf="card">Type of Box: {{ card.boxName }}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="card">Registration of Box: {{ card.boxId }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content *ngIf="card">
+      Width: {{card.width}}<br>
+      Height: {{card.height}}<br>
+      Depth: {{card.depth}}<br>
+      Material: {{ card.material }}
+    </ion-card-content>
+  </ion-card>
+</ion-grid>

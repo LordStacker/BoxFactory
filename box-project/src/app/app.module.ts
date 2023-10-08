@@ -8,12 +8,15 @@ import { IonicModule } from '@ionic/angular';
 import { CardComponent } from './card/card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeViewComponent } from './home-view/home-view.component';
-import { LoginViewComponent } from './login-view/login-view.component';
 import { SearchComponent } from './search/search.component';
+import { BoxInfoComponent } from './box-info/box-info.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { CreateBoxModalComponent } from './create-box-modal/create-box-modal.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeViewComponent },
+  { path: 'box-info/:boxId', component: BoxInfoComponent }
 ];
 
 
@@ -23,14 +26,17 @@ const routes: Routes = [
     CardComponent,
     NavbarComponent,
     HomeViewComponent,
-    LoginViewComponent,
-    SearchComponent
+    SearchComponent,
+    BoxInfoComponent,
+    CreateBoxModalComponent
   ],
   imports: [
     [RouterModule.forRoot(routes)],
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

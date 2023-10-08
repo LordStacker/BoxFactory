@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CardFilterService } from '../services/card-filter.service';
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-card',
@@ -12,14 +13,16 @@ export class CardComponent implements OnInit {
   filteredCards: any[] = [];
   chunkedCards: any[][] = [];
 
+
   constructor(
     private http: HttpClient,
-    private cardFilterService: CardFilterService
+    private cardFilterService: CardFilterService,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
-    this.http.get<any>('https://swapi.dev/api/people').subscribe(data => {
-      this.cards = data.results;
+    this.http.get<any>('http://localhost:5000/boxes').subscribe(data => {
+      this.cards = data;
       this.chunkedCards = this.chunk(this.cards, 3);
     });
 
@@ -28,12 +31,19 @@ export class CardComponent implements OnInit {
     });
   }
 
+  fetchUpdatedBoxList() {
+    this.http.get<any>('http://localhost:5000/boxes').subscribe(data => {
+      this.cards = data;
+      this.chunkedCards = this.chunk(this.cards, 3);
+    });
+  }
+
   filterCards(searchTerm: string) {
     if (searchTerm.trim() === '') {
       this.filteredCards = this.cards;
     } else {
       this.filteredCards = this.cards.filter(card =>
-        card.name.toLowerCase().includes(searchTerm.toLowerCase())
+        card.boxName.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
     this.chunkedCards = this.chunk(this.filteredCards, 3);
@@ -46,4 +56,19 @@ export class CardComponent implements OnInit {
     }
     return chunkedArray;
   }
+  openBoxInfo(boxId: number) {
+    this.navCtrl.navigateForward(`/box-info/${boxId}`);
+  }
+  deleteBox(boxId: number) {
+    this.http.delete<any>(`http://localhost:5000/box/${boxId}`).subscribe(data => {
+      console.log(data);
+      const index = this.cards.findIndex(card => card.boxId === boxId);
+      if (index !== -1) {
+        this.cards.splice(index, 1);
+        this.chunkedCards = this.chunk(this.cards, 3);
+      }
+    });
+  }
+
+
 }
