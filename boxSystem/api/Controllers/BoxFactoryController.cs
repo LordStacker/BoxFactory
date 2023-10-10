@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Dapper;
 using infrastructure.Repositories;
-using Npgsql;
 using service;
 
 namespace box_company_back.Controllers;
