@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CardFilterService } from '../services/card-filter.service';
-import {NavController} from "@ionic/angular";
+import {ModalController, NavController} from "@ionic/angular";
+import {CreateBoxModalComponent} from "../create-box-modal/create-box-modal.component";
+import {UpdateBoxModalComponent} from "../update-box-modal/update-box-modal.component";
 
 @Component({
   selector: 'app-card',
@@ -17,10 +19,12 @@ export class CardComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private cardFilterService: CardFilterService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
+    this.loadCards();
     this.http.get<any>('http://localhost:5000/boxes').subscribe(data => {
       this.cards = data;
       this.chunkedCards = this.chunk(this.cards, 3);
@@ -31,10 +35,11 @@ export class CardComponent implements OnInit {
     });
   }
 
-  fetchUpdatedBoxList() {
+  loadCards() {
     this.http.get<any>('http://localhost:5000/boxes').subscribe(data => {
       this.cards = data;
-      this.chunkedCards = this.chunk(this.cards, 3);
+      this.filteredCards = [...this.cards]; // Initialize filteredCards with all cards
+      this.chunkedCards = this.chunk(this.filteredCards, 3);
     });
   }
 
@@ -68,6 +73,30 @@ export class CardComponent implements OnInit {
         this.chunkedCards = this.chunk(this.cards, 3);
       }
     });
+  }
+
+  async openUpdateModal(boxId: number) {
+    const modal = await this.modalController.create({
+      component: UpdateBoxModalComponent,
+      componentProps: {
+        boxId: boxId,
+      },
+    });
+
+    modal.onDidDismiss().then(data => {
+      console.log('Modal dismissed with data:', data);
+      if (data && data.data && data.data.updatedBox) {
+        const updatedCard = data.data.updatedBox;
+        const index = this.cards.findIndex(card => card.boxId === updatedCard.boxId);
+        if (index !== -1) {
+          this.cards[index] = updatedCard;
+          this.filteredCards = [...this.cards];
+          this.chunkedCards = this.chunk(this.filteredCards, 3);
+        }
+      }
+    });
+
+    await modal.present();
   }
 
 

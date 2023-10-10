@@ -12,7 +12,7 @@ import { BoxInfo } from './box-info.model';
   styleUrls: ['./box-info.component.css']
 })
 export class BoxInfoComponent implements OnInit {
-  card: BoxInfo;
+  card: BoxInfo[];
 
   constructor(
     private http: HttpClient,
@@ -22,7 +22,7 @@ export class BoxInfoComponent implements OnInit {
 
   ngOnInit(): void {
     const boxId = this.route.snapshot.params['boxId'];
-    this.http.get<BoxInfo>(`http://localhost:5000/box/${boxId}`).subscribe(
+    this.http.get<BoxInfo[]>(`http://localhost:5000/box/${boxId}`).subscribe(
       data => {
         this.card = data;
       },

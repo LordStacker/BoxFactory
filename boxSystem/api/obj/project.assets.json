@@ -90,18 +90,18 @@
           }
         }
       },
-      "Npgsql/7.0.6": {
+      "Npgsql/8.0.0-preview.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0"
         },
         "compile": {
-          "lib/net7.0/Npgsql.dll": {
+          "lib/net8.0/Npgsql.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net7.0/Npgsql.dll": {
+          "lib/net8.0/Npgsql.dll": {
             "related": ".xml"
           }
         }
@@ -189,6 +189,10 @@
       "infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Dapper": "2.1.4",
+          "Npgsql": "8.0.0-preview.4"
+        },
         "compile": {
           "bin/placeholder/infrastructure.dll": {}
         },
@@ -572,27 +576,25 @@
         "microsoft.openapi.nuspec"
       ]
     },
-    "Npgsql/7.0.6": {
-      "sha512": "TAqvwRnm3NJ0QvN7cvu6geJkbI0XPzGVRElVY5hF4gsgA+BnE12x6GM1TLhdeq+7ZKvvo3BD8jXKnXmr3tvdEw==",
+    "Npgsql/8.0.0-preview.4": {
+      "sha512": "wvbiipddbRgaiYOij4fQYqnfDlxKz1XlpCNY7mWErF+CPmg+ujfs9u1ovx40TsV0Q7GKlgdyr6dugV15HvZ2Pw==",
       "type": "package",
-      "path": "npgsql/7.0.6",
+      "path": "npgsql/8.0.0-preview.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "lib/net5.0/Npgsql.dll",
-        "lib/net5.0/Npgsql.xml",
         "lib/net6.0/Npgsql.dll",
         "lib/net6.0/Npgsql.xml",
         "lib/net7.0/Npgsql.dll",
         "lib/net7.0/Npgsql.xml",
-        "lib/netcoreapp3.1/Npgsql.dll",
-        "lib/netcoreapp3.1/Npgsql.xml",
+        "lib/net8.0/Npgsql.dll",
+        "lib/net8.0/Npgsql.xml",
         "lib/netstandard2.0/Npgsql.dll",
         "lib/netstandard2.0/Npgsql.xml",
         "lib/netstandard2.1/Npgsql.dll",
         "lib/netstandard2.1/Npgsql.xml",
-        "npgsql.7.0.6.nupkg.sha512",
+        "npgsql.8.0.0-preview.4.nupkg.sha512",
         "npgsql.nuspec",
         "postgresql.png"
       ]
