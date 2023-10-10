@@ -16,7 +16,7 @@ jobs:
           dotnet-version: '8'
       - uses: actions/setup-node@v1
         with:
-          node-version: '20'
+          node-version: '16'
       - run: npm install -g newman
       - name: Setup API and run tests
         run: |
