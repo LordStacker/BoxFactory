@@ -1,4 +1,4 @@
-﻿﻿name: api test with postman with cli
+﻿name: api test with postman with cli
 on:
   push:
     branch:
