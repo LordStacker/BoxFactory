@@ -24,7 +24,7 @@ jobs:
           chmod +x ./wait-for-it.sh
           dotnet run --project=../api/ &
           API_PID=$!
-          ./boxSystem/shell_scripts/wait-for-it.sh -t 60 localhost:5000 -- && sh ./run-all-api-tests.sh
+          ./wait-for-it.sh -t 60 localhost:5000 -- && sh ./run-all-api-tests.sh
           kill $API_PID
         env:
           pgconn: ${{secrets.PGCONN}}
