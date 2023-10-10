@@ -10,3 +10,4 @@ C:\Users\nicoe\OneDrive\Escritorio\Box Company\boxSystem\infrastructure\obj\Debu
 C:\Users\nicoe\OneDrive\Escritorio\Box Company\boxSystem\infrastructure\obj\Debug\net8.0\refint\infrastructure.dll
 C:\Users\nicoe\OneDrive\Escritorio\Box Company\boxSystem\infrastructure\obj\Debug\net8.0\infrastructure.pdb
 C:\Users\nicoe\OneDrive\Escritorio\Box Company\boxSystem\infrastructure\obj\Debug\net8.0\ref\infrastructure.dll
+C:\Users\nicoe\OneDrive\Escritorio\Box Company\boxSystem\infrastructure\obj\Debug\net8.0\infrastructure.csproj.AssemblyReference.cache

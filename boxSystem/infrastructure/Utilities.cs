@@ -1,4 +1,5 @@
-﻿namespace box_company_back;
+﻿namespace infrastructure;
+
 public class Utilities
 {
     private static readonly Uri Uri = new Uri(Environment.GetEnvironmentVariable("pgconn")!);

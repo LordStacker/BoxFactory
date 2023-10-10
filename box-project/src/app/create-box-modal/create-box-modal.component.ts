@@ -13,7 +13,7 @@ export class CreateBoxModalComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient, // Inject the HttpClient here
+    private http: HttpClient,
     private modalController: ModalController
   ) {
     this.createBoxForm = this.formBuilder.group({

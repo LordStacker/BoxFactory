@@ -1,0 +1,28 @@
+<ion-content>
+  <form [formGroup]="updateBoxForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="stacked">Box Name</ion-label>
+      <ion-input formControlName="boxName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Material</ion-label>
+      <ion-input formControlName="material"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Width</ion-label>
+      <ion-input formControlName="width" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Height</ion-label>
+      <ion-input formControlName="height" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Depth</ion-label>
+      <ion-input formControlName="depth" type="number"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="!updateBoxForm.valid">
+      Update Box
+    </ion-button>
+  </form>
+  <ion-button expand="full" (click)="closeModal()">Close</ion-button>
+</ion-content>

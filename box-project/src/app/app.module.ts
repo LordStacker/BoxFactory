@@ -12,6 +12,7 @@ import { SearchComponent } from './search/search.component';
 import { BoxInfoComponent } from './box-info/box-info.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CreateBoxModalComponent } from './create-box-modal/create-box-modal.component';
+import { UpdateBoxModalComponent } from './update-box-modal/update-box-modal.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
     HomeViewComponent,
     SearchComponent,
     BoxInfoComponent,
-    CreateBoxModalComponent
+    CreateBoxModalComponent,
+    UpdateBoxModalComponent
   ],
   imports: [
     [RouterModule.forRoot(routes)],

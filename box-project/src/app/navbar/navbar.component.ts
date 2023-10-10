@@ -13,7 +13,7 @@ export class NavbarComponent {
 
   async openCreateBoxModal() {
     const modal = await this.modalController.create({
-      component: CreateBoxModalComponent, // Use the modal component you created
+      component: CreateBoxModalComponent,
     });
 
     await modal.present();

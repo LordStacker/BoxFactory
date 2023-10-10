@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XcBeK2uyct5HHuM4y6Ut3XFTzB2I6s1Gz5UCoYNW/xHd826RCmsR8l8x2zaI1QJthgcF7PPylGRim1yJa0eUxA==",
+  "dgSpecHash": "GcbtoeLsyX+OAPcCjckziGr1ssiE3cXUXOAnCIsLVY3CxI+Cqh0Ezv6tKXMVQmxH56xSR//xGtZFXZikQdi38A==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nicoe\\.nuget\\packages\\dapper\\2.1.4\\dapper.2.1.4.nupkg.sha512",
+    "C:\\Users\\nicoe\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\nicoe\\.nuget\\packages\\npgsql\\8.0.0-preview.4\\npgsql.8.0.0-preview.4.nupkg.sha512"
+  ],
   "logs": []
 }
