@@ -72,6 +72,15 @@ public class BoxRepository
             return conn.Query<BoxFeedQuery>(insertQuery, new { boxName, material, width, height, depth });
         }
     }
+public IEnumerable<BoxFeedQuery> SearchBox(string searchterm)
+{
+    var query = "SELECT * FROM public.boxes WHERE boxName ILIKE @searchterm";
+    using (var conn = _dataSource.OpenConnection())
+    {
+        return conn.Query<BoxFeedQuery>(query, new { searchterm = "%" + searchterm + "%" });
+    }
+}
+
 }
 
 public class BoxFeedQuery
