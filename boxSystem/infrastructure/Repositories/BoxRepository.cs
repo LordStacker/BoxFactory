@@ -54,7 +54,7 @@ public class BoxRepository
                           "SET boxName = @BoxName, material = @Material, " +
                           "width = @Width, height = @Height, depth = @Depth " +
                           "WHERE boxId = @BoxId " +
-                          "RETURNING *"; // Add RETURNING * to get the updated row
+                          "RETURNING *";
 
         using (var conn = _dataSource.OpenConnection())
         {
@@ -66,7 +66,7 @@ public class BoxRepository
     public IEnumerable<BoxFeedQuery> CreateBox(string boxName, string material, decimal width, decimal height, decimal depth)
     {
         var insertQuery = "INSERT INTO public.boxes (boxName, material, width, height, depth) " +
-                          "VALUES (@BoxName, @Material, @Width, @Height, @Depth) RETURNING boxId";
+                          "VALUES (@BoxName, @Material, @Width, @Height, @Depth) RETURNING *";
         using (var conn = _dataSource.OpenConnection())
         {
             return conn.Query<BoxFeedQuery>(insertQuery, new { boxName, material, width, height, depth });
