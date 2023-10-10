@@ -1,0 +1,21 @@
+<ion-grid class="card-container">
+    <ion-row *ngFor="let row of chunkedCards">
+      <ion-col *ngFor="let card of row" size="4">
+        <ion-card class="card-item ion-card-shadow">
+          <ion-card-header>
+            <ion-card-title>{{ card.boxName }}</ion-card-title>
+            <ion-card-subtitle>{{ card.boxId }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            Width: {{card.width}}<br>
+            Height: {{card.height}}<br>
+            Depth: {{card.depth}}<br>
+            Material: {{ card.material }}
+          </ion-card-content>
+          <ion-button (click)="openBoxInfo(card.boxId)">Box Info</ion-button>
+          <ion-button (click)="deleteBox(card.boxId)">Delete Box</ion-button>
+          <ion-button (click)="openUpdateModal(card.boxId)">Update Box</ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>

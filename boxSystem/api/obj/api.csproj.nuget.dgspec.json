@@ -1,0 +1,215 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\api\\api.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\api\\api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\api\\api.csproj",
+        "projectName": "api",
+        "projectPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\nicoe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nicoe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\service\\service.csproj": {
+                "projectPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\service\\service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.0-preview.7.23375.9, )"
+            },
+            "Npgsql.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\infrastructure.csproj",
+        "projectName": "infrastructure",
+        "projectPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\infrastructure.csproj",
+        "packagesPath": "C:\\Users\\nicoe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nicoe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.0-preview.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\service\\service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\service\\service.csproj",
+        "projectName": "service",
+        "projectPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\service\\service.csproj",
+        "packagesPath": "C:\\Users\\nicoe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nicoe\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\infrastructure.csproj": {
+                "projectPath": "C:\\Users\\nicoe\\OneDrive\\Escritorio\\Box Company\\boxSystem\\infrastructure\\infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "default"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
