@@ -30,8 +30,8 @@ jobs:
 
       - name: Run tests once API is running (sleep interval set to 60 seconds)
         run: cd ./boxSystem/tests && sleep 60 && dotnet test
-       env:
-         pgconn: ${{secrets.PGCONN}}
+        env:
+          pgconn: ${{secrets.PGCONN}}
           
       - name: Shutdown Web API once the tests are done running
         run: kill $API_PID
