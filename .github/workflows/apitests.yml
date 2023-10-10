@@ -1,38 +1,59 @@
 ﻿name: api test with postman with cli
+
 on:
   push:
-    branch:
-      -development
-    pull_request:
-      branch:
-        - '*'
+    branches:
+      - development
+  pull_request:
+    branches:
+      - '*'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-dotnet@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
         with:
-          dotnet-version: '8'
-      - uses: actions/setup-node@v1
+          dotnet-version: '5.x'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '14'
+
       - name: Install Angular program dependencies, Angular global CLI + ng build
-        run: cd ./box-project && npm i -g @angular/cli && npm i && ng build -c="development"
+        run: |
+          cd ./box-project
+          npm i -g @angular/cli
+          npm i
+          ng build -c="development"
 
       - name: Build test code and install playwright test browser
-       run: cd ./boxSystem/tests && dotnet build && pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+        run: |
+          cd ./boxSystem/tests
+          dotnet build
+          pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
 
-     # - name: Build and run Web API + getting process ID for shutting down later
-     #  run: cd api && dotnet run & echo "API_PID=$!" >> $GITHUB_ENV
-     #  env:
-         # pgconn: ${{secrets.PGCONN}}
+      - name: Build and run Web API + getting process ID for shutting down later
+        run: |
+          cd api
+          dotnet run &
+          echo "API_PID=$!" >> $GITHUB_ENV
+        env:
+          pgconn: ${{ secrets.PGCONN }}
 
       - name: Run tests once API is running (sleep interval set to 60 seconds)
-        run: cd ./boxSystem/tests && sleep 60 && dotnet test
-       env:
-         pgconn: ${{secrets.PGCONN}}
+        run: |
+          cd ./boxSystem/tests
+          sleep 60
+          dotnet test
+        env:
+          pgconn: ${{ secrets.PGCONN }}
           
-      #- name: Shutdown Web API once the tests are done running
-      #  run: kill $API_PID
-  
+      # Uncomment this section if you want to shut down the API after tests
+      # - name: Shutdown Web API once the tests are done running
+      #   run: kill $API_PID
