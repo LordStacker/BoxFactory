@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CardFilterService } from '../services/card-filter.service';
 import {ModalController, NavController} from "@ionic/angular";
-import {CreateBoxModalComponent} from "../create-box-modal/create-box-modal.component";
 import {UpdateBoxModalComponent} from "../update-box-modal/update-box-modal.component";
 
 @Component({
@@ -45,14 +44,24 @@ export class CardComponent implements OnInit {
 
   filterCards(searchTerm: string) {
     if (searchTerm.trim() === '') {
-      this.filteredCards = this.cards;
+
+      this.filteredCards = [...this.cards];
+      this.chunkedCards = this.chunk(this.filteredCards, 3);
     } else {
-      this.filteredCards = this.cards.filter(card =>
-        card.boxName.toLowerCase().includes(searchTerm.toLowerCase())
+      const headers = { searchterm: searchTerm };
+      this.http.get<any[]>('http://localhost:5000/box/search', { headers }).subscribe(
+        (filteredCards) => {
+          this.filteredCards = filteredCards;
+          this.chunkedCards = this.chunk(this.filteredCards, 3);
+        },
+        (error) => {
+          console.error('Error fetching filtered cards:', error);
+        }
       );
     }
-    this.chunkedCards = this.chunk(this.filteredCards, 3);
   }
+
+
 
   chunk(arr: any[], size: number): any[][] {
     const chunkedArray: any[][] = [];

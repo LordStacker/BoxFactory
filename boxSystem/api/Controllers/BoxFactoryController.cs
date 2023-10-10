@@ -33,6 +33,15 @@ public class BoxFactoryController : ControllerBase
     {
         return _boxService.GetBoxById(boxId);;
     }
+    
+    [HttpGet]
+    [Route("/box/search")]
+    public object SearchBox([FromHeader] string searchterm)
+    {
+        return _boxService.SearchBox(searchterm);
+    }
+    
+    
     [HttpPut]
     [Route("/box/{boxId}")]
     public BoxFeedQuery UpdateBoxById(int boxId, [FromBody] BoxUpdateDto boxDto)

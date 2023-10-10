@@ -41,5 +41,9 @@ public class BoxService
         return _boxRepository.CreateBox( BoxName,  Material,  Width,  Height, Depth);
     }
 
+    public IEnumerable<BoxFeedQuery> SearchBox(string searchterm)
+    {
+        return _boxRepository.SearchBox(searchterm);
+    }
 
 }
