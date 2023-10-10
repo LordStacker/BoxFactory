@@ -20,9 +20,9 @@ jobs:
       - run: npm install -g newman
       - name: Setup API and run tests
         run: |
-          cd ./shell_scripts
+          cd ./boxSystem/shell_scripts
           chmod +x ./wait-for-it.sh
-          dotnet run --project=./boxSystem/api/ &
+          dotnet run --project=../api/ &
           API_PID=$!
           ./wait-for-it.sh -t 60 localhost:5000 -- && sh ./run-all-api-test.sh
           kill $API_PID
