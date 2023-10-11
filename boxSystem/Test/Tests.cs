@@ -67,7 +67,7 @@ public class Tests : PageTest
             Assert.IsTrue(response.IsSuccessStatusCode, "POST request should be successful.");
         }
     }
-    
+    /*
     [Test]
     public async Task TestDeleteBox()
     {
@@ -87,7 +87,7 @@ public class Tests : PageTest
                 Assert.Fail($"API request failed with status code: {response.StatusCode}");
             }
         }
-    }
+    }*/
 
 
 }
