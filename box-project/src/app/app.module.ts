@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {RouterLink, RouterLinkActive, RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { CardComponent } from './card/card.component';
@@ -13,11 +12,13 @@ import { BoxInfoComponent } from './box-info/box-info.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { CreateBoxModalComponent } from './create-box-modal/create-box-modal.component';
 import { UpdateBoxModalComponent } from './update-box-modal/update-box-modal.component';
+import { AlexViewComponent } from './alex-view/alex-view.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeViewComponent },
-  { path: 'box-info/:boxId', component: BoxInfoComponent }
+  { path: 'box-info/:boxId', component: BoxInfoComponent },
+  { path: 'alex/secret/life', component: AlexViewComponent}
 ];
 
 
@@ -30,7 +31,8 @@ const routes: Routes = [
     SearchComponent,
     BoxInfoComponent,
     CreateBoxModalComponent,
-    UpdateBoxModalComponent
+    UpdateBoxModalComponent,
+    AlexViewComponent
   ],
   imports: [
     [RouterModule.forRoot(routes)],
