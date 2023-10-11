@@ -1,3 +1,4 @@
+using System.Net.Http.Json;
 using System.Text;
 using Microsoft.Playwright.NUnit;
 using Newtonsoft.Json;
@@ -60,21 +61,19 @@ public class Tests : PageTest
                 Height = 5.0m,
                 Depth = 3.0m
             };
-            string jsonPayload = JsonConvert.SerializeObject(boxData);
-            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await client.PostAsync(Helper.ApiBaseUrl, content);
+            HttpResponseMessage response = await client.PostAsJsonAsync(Helper.ApiBaseUrl, boxData);
 
             Assert.IsTrue(response.IsSuccessStatusCode, "POST request should be successful.");
         }
     }
-    /*
+    
     [Test]
     public async Task TestDeleteBox()
     {
         using (HttpClient client = new HttpClient())
         {
-            int boxId = 85; 
+            int boxId = 97; 
 
             HttpResponseMessage response = await client.DeleteAsync($"{Helper.ApiBaseUrl}/{boxId}");
 
@@ -88,7 +87,7 @@ public class Tests : PageTest
                 Assert.Fail($"API request failed with status code: {response.StatusCode}");
             }
         }
-    }*/
+    }
 
 
 }
